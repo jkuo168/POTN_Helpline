@@ -44,7 +44,7 @@ export default function ButtonBases() {
             style={{marginLeft: 'auto',
                     marginRight: 'auto'
                   }}>
-            Princeton Tutoring Network Helpline
+            PTON
           </Typography>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
