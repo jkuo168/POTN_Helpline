@@ -10,48 +10,71 @@ import Typography from '@material-ui/core/Typography';
 
 // Buttons
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
+import ButtonBase from '@material-ui/core/Button';
 
 // Images / Icons
 import MenuIcon from '@material-ui/icons/Menu';
 import logo from './pton-logo.png';
 
-const iconStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
+// Linking pages
+import { Link } from 'react-router-dom';
 
+// custom css
+const styles = makeStyles((theme) => ({
+  button: {
+    margin: 'auto',
+  },
+  appbar: {
+    color: '#000000',
+    backgroundColor: '#ffffff',
+    borderStyle: 'solid',
+    borderColor: '#f58025',
+    borderWidth: '4px 0px 4px 0px'
+  }
 }));
 
-const buttonStyles = makeStyles((theme) => ({
-  root: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
+// array of buttons on navigation bar
+const buttons = [
+  {
+    title: 'COMMUNITY PARTNERS',
+    link: '/community_partners'
   },
-}));
+  {
+    title: 'HOMEWORK HELPLINE',
+    link: '/homework_helpline'
+  },
+  {
+    title: 'TUTORING',
+    link: '/tutoring'
+  },
+  {
+    title: 'RESOURCES',
+    link: '/resources'
+  },
+  {
+    title: 'FAQ\'S',
+    link: '/faqs'
+  },
+  {
+    title: 'FEEDBACK',
+    link: '/feedback'
+  },
+  {
+    title: 'ABOUT US',
+    link: '/about_us'
+  }
+]
 
 export default function NavBar() {
-  const icon = iconStyles();
-  const button = buttonStyles();
+  const classes = styles();
 
   return (
     <div>
       <AppBar
         position="static"
-        style={{
-                color: '#000000',
-                backgroundColor: '#ffffff',
-                borderStyle: 'solid',
-                borderColor: '#f58025',
-                borderWidth: '4px 0px 4px 0px'
-              }}>
-        <Toolbar>
+        className={classes.appbar}
+      >
+        <Toolbar style={{ paddingRight: '0px'}}>
           <img
                 src={logo}
                 alt="Logo"
@@ -59,24 +82,15 @@ export default function NavBar() {
                 height='50'
                 style={{marginRight: '1%'}}
           />
-          <Button className={button.root}>
-            COMMUNITY PARTNERS
-          </Button>
-          <Button className={button.root}>
-            HOMEWORK HELPLINE
-          </Button>
-          <Button className={button.root}>
-            TUTORING
-          </Button>
-          <Button className={button.root}>
-            FAQ'S
-          </Button>
-          <Button className={button.root}>
-            FEEDBACK
-          </Button>
-          <Button className={button.root}>
-            ABOUT US
-          </Button>
+          {buttons.map(button => (
+            <ButtonBase
+              className={classes.button}
+              key={button.title}
+              component={Link} to={button.link}
+            >
+              {button.title}
+            </ButtonBase>
+          ))}
         </Toolbar>
       </AppBar>
     </div>

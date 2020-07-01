@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   root: {
     justifyContent: 'flex-end',
-    position: 'absolute',
+    position: 'fixed',
     bottom: '0',
     width: '100%',
-    height: '10%'
+    height: '100px'
   }
 }));
 
@@ -20,14 +20,12 @@ export default function Footer() {
                    backgroundColor: "#000000",
                    borderStyle: 'solid',
                    borderColor: '#f58025',
-                   borderWidth: '4px 0px 0px 0px'
+                   borderWidth: '4px 0px 0px 0px',
+                   color: "#ffffff",
+                   textAlign: 'center'
                  }}>
-        <div style={{
-                    color: "#ffffff",
-                    textAlign: 'center'
-                  }}>
+
           Princeton University
-        </div>
     </div>
   );
 }
