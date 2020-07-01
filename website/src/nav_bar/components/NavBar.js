@@ -74,7 +74,7 @@ export default function NavBar() {
         position="static"
         className={classes.appbar}
       >
-        <Toolbar style={{ paddingRight: '0px'}}>
+        <Toolbar style={{ paddingRight: '0px', display: 'block'}}>
           <img
                 src={logo}
                 alt="Logo"

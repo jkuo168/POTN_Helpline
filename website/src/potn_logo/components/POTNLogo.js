@@ -12,7 +12,7 @@ export default function POTNLogo() {
 
   return (
     <div className={classes.root}>
-      <img src={potn_logo} style={{width: '-webkit-fill-available', height: 'max-content', opacity: '70%'}}></img>
+      <img src={potn_logo} style={{width: '100%', height: 'max-content', opacity: '70%'}}></img>
     </div>
   );
 }
