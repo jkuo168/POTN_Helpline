@@ -1,14 +1,13 @@
-import React from 'react';
-import HomePage from './home_page/components/HomePage';
-import HomeworkHelpline from './homework_helpline/components/HomeworkHelpline';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from "react";
+import HomePage from "./components/home_page/HomePage";
+import HomeworkHelpline from "./components/homework_helpline/HomeworkHelpline";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={HomePage} />
+        <Route exact path="/" component={HomePage} />
       </Switch>
     </BrowserRouter>
   );
