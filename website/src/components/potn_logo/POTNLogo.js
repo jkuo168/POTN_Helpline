@@ -6,7 +6,10 @@ import "./index.css";
 export default function POTNLogo() {
   return (
     <div className="container">
-      <img src={potn_logo} style={{ width: "100%", height: "100%" }}></img>
+      <img
+        src={potn_logo}
+        style={{ width: "100%", height: "100%", verticalAlign: "top" }}
+      ></img>
       <div className="centered">Princeton Online Tutoring Network</div>
     </div>
   );

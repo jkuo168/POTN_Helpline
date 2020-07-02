@@ -14,7 +14,7 @@ import ButtonBase from "@material-ui/core/Button";
 
 // Images / Icons
 import MenuIcon from "@material-ui/icons/Menu";
-import logo from "./pton-logo.png";
+import logo from "./pace_logo.png";
 
 // Linking pages
 import { Link } from "react-router-dom";
@@ -27,9 +27,10 @@ const styles = makeStyles((theme) => ({
     borderStyle: "solid",
     borderColor: "#f58025",
     borderWidth: "4px 0px 4px 0px",
+    position: "fixed",
   },
   button: {
-    height: "64px",
+    height: "80px",
     padding: "8px 20px",
     fontSize: "16px",
     borderRadius: "0",
@@ -76,15 +77,7 @@ export default function NavBar() {
     <header>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <img
-            src={logo}
-            alt="Logo"
-            width="150"
-            height="50"
-            style={{
-              marginRight: "1%",
-            }}
-          />
+          <img src={logo} alt="Logo" width="150" height="80" />
           <div style={{ flexGrow: 1 }}></div>
           {buttons.map((button) => (
             <ButtonBase
@@ -96,7 +89,12 @@ export default function NavBar() {
               {button.title}
             </ButtonBase>
           ))}
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
         </Toolbar>
