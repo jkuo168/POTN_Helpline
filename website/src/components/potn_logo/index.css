@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap");
-
 .centered {
   color: #000000;
   font-family: "Open Sans Condensed", sans-serif;
-  font-size: 60px;
+  font-size: 70px;
   left: 50%;
   position: absolute;
   top: 50%;
@@ -12,7 +10,14 @@
 
 .container {
   color: white;
-  text-align: center;
+  margin-top: 87px;
   min-height: 500px;
   min-width: 1200px;
+  text-align: center;
+  padding: 0;
+}
+
+.slick-slide img {
+  margin: auto;
+  width: 100%;
 }

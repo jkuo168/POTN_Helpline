@@ -28,6 +28,7 @@ const styles = makeStyles((theme) => ({
     borderColor: "#f58025",
     borderWidth: "4px 0px 4px 0px",
     position: "fixed",
+    top: "0",
   },
   button: {
     height: "80px",
@@ -77,7 +78,7 @@ export default function NavBar() {
     <header>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <img src={logo} alt="Logo" width="150" height="80" />
+          <img src={logo} alt="Logo" width="160" height="80" />
           <div style={{ flexGrow: 1 }}></div>
           {buttons.map((button) => (
             <ButtonBase
