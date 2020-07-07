@@ -1,2 +1,2 @@
 # POTN Helpline
-Live Cite: https://jkuo168.github.io/POTN_Helpline/
+Live website: https://jkuo168.github.io/POTN_Helpline/
