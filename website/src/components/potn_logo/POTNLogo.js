@@ -40,7 +40,7 @@ const styles = makeStyles((theme) => ({
 const renderSlides = () =>
   [image1, image2, image3].map((image) => (
     <div key={image}>
-      <img src={image}></img>
+      <img src={image} style={{ height: "10%" }}></img>
     </div>
   ));
 

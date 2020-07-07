@@ -1,21 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
 // App bar
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-
 // Text
 import Typography from "@material-ui/core/Typography";
-
 // Buttons
 import IconButton from "@material-ui/core/IconButton";
 import ButtonBase from "@material-ui/core/Button";
-
 // Images / Icons
+import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import logo from "./pace_logo.png";
-
 // Linking pages
 import { Link } from "react-router-dom";
 
@@ -30,12 +27,42 @@ const styles = makeStyles((theme) => ({
     position: "fixed",
     top: "0",
   },
-  button: {
+  navBarButton: {
     height: "80px",
     padding: "8px 20px",
     fontSize: "16px",
     borderRadius: "0",
     textDecoration: "none",
+    "&:hover:not(.active)": {
+      backgroundColor: "#d3d3d3",
+    },
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
+  },
+  navBarDropdownButton: {
+    fontWeight: 600,
+    "&:focus:not(:hover)": {
+      // Override strange focus highlight
+      backgroundColor: "#ffffff",
+    },
+    "&.active": {
+      color: theme.palette.primary.main,
+    },
+    "&:hover": {
+      // Brighten the hover color
+      backgroundColor: "#d3d3d3",
+    },
+  },
+  menuButton: {
+    height: "80px",
+    padding: "8px 20px",
+    fontSize: "16px",
+    borderRadius: "0",
+    textDecoration: "none",
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+    },
   },
 }));
 
@@ -74,6 +101,20 @@ const buttons = [
 export default function NavBar() {
   const classes = styles();
 
+  // toggle mobile menu dropdown
+  const [dropdown, setDropdown] = useState(null);
+  const isDropdownOpen = Boolean(dropdown);
+
+  // mobile menu popup handler
+  const handleMenu = (event) => {
+    setDropdown(event.currentTarget);
+  };
+
+  // mobile menu popup handler
+  const handleClose = () => {
+    setDropdown(null);
+  };
+
   return (
     <header>
       <AppBar position="static" className={classes.appbar}>
@@ -82,22 +123,51 @@ export default function NavBar() {
           <div style={{ flexGrow: 1 }}></div>
           {buttons.map((button) => (
             <ButtonBase
-              className={classes.button}
-              key={button.title}
+              className={classes.navBarButton}
               component={Link}
+              key={button.title}
               to={button.link}
             >
               {button.title}
             </ButtonBase>
           ))}
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
+          <div>
+            <IconButton
+              aria-owns={isDropdownOpen ? "menu-appbar" : undefined}
+              aria-haspopup="true"
+              className={classes.menuButton}
+              onClick={handleMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              onClose={handleClose}
+              open={isDropdownOpen}
+              anchorEl={dropdown}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+            >
+              {buttons.map((button) => (
+                <MenuItem
+                  className={classes.navBarDropdownButton}
+                  component={Link}
+                  key={button.title}
+                  to={button.link}
+                >
+                  {button.title}
+                </MenuItem>
+              ))}
+            </Menu>
+          </div>
         </Toolbar>
       </AppBar>
     </header>

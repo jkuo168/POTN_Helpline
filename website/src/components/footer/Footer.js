@@ -5,40 +5,43 @@ import pton_logo from "./pton_logo.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    bottom: "0",
-    width: "100%",
-    height: "100%",
     backgroundColor: "#000000",
-    borderStyle: "solid",
     borderColor: "#f58025",
     borderWidth: "4px 0px 0px 0px",
+    borderStyle: "solid",
+    bottom: "0",
     color: "#ffffff",
-    position: "relative",
-    minWidth: "1200px",
     display: "flex",
+    flex: "initial",
+    height: "100%",
+    minWidth: "1200px",
+    position: "relative",
+    width: "100%",
+    zIndex: 1,
   },
   logo: {
-    padding: "0",
-    maxWidth: "50%",
     display: "block",
+    maxWidth: "50%",
     margin: "auto",
+    maxWidth: "50%",
+    padding: "0",
   },
   contacts: {
     color: "#ffffff",
-    textAlign: "center",
-    maxWidth: "50%",
     display: "block",
-    margin: "auto",
-    paddingTop: "15px",
     fontFamily: '"Open Sans Condensed", sans-serif;',
     fontSize: "15px",
+    margin: "auto",
+    maxWidth: "50%",
+    paddingTop: "15px",
+    textAlign: "center",
   },
   copyright: {
-    textAlign: "right",
     display: "block",
-    margin: "auto",
     fontFamily: '"Open Sans Condensed", sans-serif;',
     fontSize: "15px",
+    margin: "auto",
+    textAlign: "right",
   },
 }));
 
@@ -50,7 +53,11 @@ export default function Footer() {
       <Container className={classes.logo}>
         <img
           src={pton_logo}
-          style={{ width: "50%", paddingLeft: "20px", paddingTop: "10px" }}
+          style={{
+            width: "50%",
+            paddingLeft: "20px",
+            paddingTop: "10px",
+          }}
         ></img>
       </Container>
       <Container className={classes.contacts}>
