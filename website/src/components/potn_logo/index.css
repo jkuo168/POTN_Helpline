@@ -10,15 +10,30 @@
 
 .container {
   color: white;
+  flex-grow: 1;
   margin-top: 87px;
   min-height: 500px;
   min-width: 1200px;
-  text-align: center;
   padding: 0;
-  flex-grow: 1;
+  text-align: center;
 }
 
 .slick-slide img {
   margin: auto;
+  width: 100%;
+}
+
+.slider {
+  margin: auto;
+  max-width: 1000px;
+  position: relative;
+}
+
+.text {
+  background-color: "cadetblue";
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 70px;
+  height: 600px;
+  position: relative;
   width: 100%;
 }
