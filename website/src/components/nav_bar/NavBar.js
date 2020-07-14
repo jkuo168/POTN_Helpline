@@ -77,20 +77,12 @@ const buttons = [
     link: "/homework_helpline",
   },
   {
-    title: "TUTORING",
-    link: "/tutoring",
-  },
-  {
     title: "RESOURCES",
     link: "/resources",
   },
   {
     title: "FAQ'S",
     link: "/faqs",
-  },
-  {
-    title: "FEEDBACK",
-    link: "/feedback",
   },
   {
     title: "ABOUT US",

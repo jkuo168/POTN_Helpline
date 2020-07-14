@@ -1,13 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 import ButtonBase from "@material-ui/core/Button";
-// slider and image imports
-import image1 from "./pace_1.jpg";
-import image2 from "./pace_2.jpg";
-import image3 from "./pace_3.jpg";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
 // card
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -91,10 +85,20 @@ export default function POTNLogo() {
           >
             Princeton Online Tutoring Network
           </div>
-          <ButtonBase className={classes.sign_up} variant="outlined">
+          <ButtonBase
+            className={classes.sign_up}
+            component={Link}
+            variant="outlined"
+            to="/signup"
+          >
             SIGN UP
           </ButtonBase>
-          <ButtonBase className={classes.login} variant="outlined">
+          <ButtonBase
+            className={classes.login}
+            component={Link}
+            variant="outlined"
+            to="/login"
+          >
             LOGIN
           </ButtonBase>
         </div>
@@ -102,7 +106,7 @@ export default function POTNLogo() {
       <div className={classes.cards}>
         {cards.map((card) => {
           return (
-            <Card className={classes.card} key={card.name} style={{}}>
+            <Card className={classes.card} key={card.name}>
               <CardContent>{card.name}</CardContent>
             </Card>
           );
