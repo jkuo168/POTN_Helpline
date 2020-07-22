@@ -65,15 +65,15 @@ const SignUp = ({ history }) => {
 
   const handleSignUp = (event) => {
     event.preventDefault();
-    if (email.length == 0 || password.length == 0) {
-      if (email.length == 0) {
+    if (email.length === 0 || password.length === 0) {
+      if (email.length === 0) {
         let email_error = document.getElementById("email_error");
         email_error.innerHTML = "Please enter an email";
       } else {
         let email_error = document.getElementById("email_error");
         email_error.innerHTML = " ";
       }
-      if (password.length == 0) {
+      if (password.length === 0) {
         let password_error = document.getElementById("password_error");
         password_error.innerHTML = "Please enter a password";
       } else {
