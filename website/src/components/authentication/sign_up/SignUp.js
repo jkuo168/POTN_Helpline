@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useState, useEffect } from "react";
 import { withRouter, Redirect } from "react-router";
-import { AuthContext } from "../authentication/Auth.js";
-import app from "../authentication/base.js";
+import { AuthContext } from "../Auth.js";
+import app from "../base.js";
 // styles
 import {
   makeStyles,
@@ -56,14 +56,14 @@ const theme = createMuiTheme({
   },
 });
 
-const Login = ({ history }) => {
+const SignUp = ({ history }) => {
   // login and password states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { currentUser } = useContext(AuthContext);
 
-  const handleLogin = (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
     if (email.length == 0 || password.length == 0) {
       if (email.length == 0) {
@@ -87,12 +87,13 @@ const Login = ({ history }) => {
       password_error.innerHTML = " ";
       app
         .auth()
-        .signInWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(email, password)
         .then(() => {
           history.push("/user_home");
         })
         .catch((error) => {
-          alert("Incorrect email and / or password");
+          console.log(error);
+          alert("The email address is already in use by another account.");
         });
     }
   };
@@ -117,7 +118,7 @@ const Login = ({ history }) => {
               paddingBottom: "20px",
             }}
           >
-            Login to your account
+            Create your account
           </div>
           <FormControl
             style={{
@@ -158,9 +159,9 @@ const Login = ({ history }) => {
             <ButtonBase
               className={classes.submit}
               key="submit"
-              onClick={handleLogin}
+              onClick={handleSignUp}
             >
-              Login
+              Sign Up
             </ButtonBase>
             <div
               style={{
@@ -170,7 +171,7 @@ const Login = ({ history }) => {
                 fontFamily: "Arial, Helvetica, sans-serif",
               }}
             >
-              Don't have an account? <a href="#/signup">Sign Up</a>
+              Already have an account? <a href="#/login">Login</a>
             </div>
           </FormControl>
         </Card>
@@ -179,4 +180,4 @@ const Login = ({ history }) => {
   }
 };
 
-export default withRouter(Login);
+export default SignUp;

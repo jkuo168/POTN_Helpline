@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap");
 .centered {
   color: #000000;
-  font-family: "monospace";
+  font-family: "Open Sans Condensed", sans-serif;
   font-size: 70px;
   left: 50%;
   position: absolute;
@@ -31,7 +32,6 @@
 
 .text {
   background-color: "cadetblue";
-  font-family: "Open Sans Condensed", sans-serif;
   font-size: 70px;
   height: 600px;
   position: relative;

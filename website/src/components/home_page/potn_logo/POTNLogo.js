@@ -79,12 +79,7 @@ export default function POTNLogo() {
         }}
       >
         <div className="centered">
-          <div
-            className={classes.name}
-            style={{ WebkitTextStroke: "1px grey" }}
-          >
-            Princeton Online Tutoring Network
-          </div>
+          <div className={classes.name}>Princeton Online Tutoring Network</div>
           <ButtonBase
             className={classes.sign_up}
             component={Link}

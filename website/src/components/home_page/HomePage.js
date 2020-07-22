@@ -1,13 +1,13 @@
 import React from "react";
 
 // import nav AppBar
-import NavBar from "../nav_bar/NavBar.js";
+import NavBar from "../header_footer/nav_bar/NavBar.js";
 
 // import footer
-import Footer from "../footer/Footer.js";
+import Footer from "../header_footer/footer/Footer.js";
 
 // import POTN logot
-import POTNLogo from "../potn_logo/POTNLogo.js";
+import POTNLogo from "./potn_logo/POTNLogo.js";
 
 // UI imports
 import { makeStyles } from "@material-ui/core/styles";
