@@ -163,6 +163,16 @@ const SignUp = ({ history }) => {
             >
               Sign Up
             </ButtonBase>
+            <div
+              style={{
+                color: "black",
+                fontSize: "10px",
+                paddingTop: "30px",
+                fontFamily: "Arial, Helvetica, sans-serif",
+              }}
+            >
+              Already have an account? <a href="#/login">Login</a>
+            </div>
           </FormControl>
         </Card>
       </div>
