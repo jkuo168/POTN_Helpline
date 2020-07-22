@@ -14,6 +14,7 @@ import Card from "@material-ui/core/Card";
 import Container from "@material-ui/core/Container";
 // Form
 import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@material-ui/core/FormHelperText";
 import TextField from "@material-ui/core/TextField";
 import ButtonBase from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
@@ -63,17 +64,37 @@ const Login = ({ history }) => {
   const { currentUser } = useContext(AuthContext);
 
   const handleLogin = (event) => {
-    app
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        history.push("/user_home");
-      })
-      .catch((error) => {
-        alert(error);
-      });
-
     event.preventDefault();
+    if (email.length == 0 || password.length == 0) {
+      if (email.length == 0) {
+        let email_error = document.getElementById("email_error");
+        email_error.innerHTML = "Please enter an email";
+      } else {
+        let email_error = document.getElementById("email_error");
+        email_error.innerHTML = " ";
+      }
+      if (password.length == 0) {
+        let password_error = document.getElementById("password_error");
+        password_error.innerHTML = "Please enter a password";
+      } else {
+        let password_error = document.getElementById("password_error");
+        password_error.innerHTML = " ";
+      }
+    } else {
+      let email_error = document.getElementById("email_error");
+      email_error.innerHTML = " ";
+      let password_error = document.getElementById("password_error");
+      password_error.innerHTML = " ";
+      app
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          history.push("/user_home");
+        })
+        .catch((error) => {
+          alert("Incorrect email and / or password");
+        });
+    }
   };
 
   // styles
@@ -103,28 +124,37 @@ const Login = ({ history }) => {
               width: "100%",
             }}
           >
-            <div>
-              <ThemeProvider theme={theme}>
-                <TextField
-                  label="Email"
-                  variant="outlined"
-                  value={email}
-                  onInput={(e) => setEmail(e.target.value)}
-                  style={{ width: "100%" }}
-                />
-              </ThemeProvider>
-            </div>
-            <div>
-              <ThemeProvider theme={theme}>
-                <TextField
-                  label="Password"
-                  variant="outlined"
-                  style={{ width: "100%" }}
-                  value={password}
-                  onInput={(e) => setPassword(e.target.value)}
-                />
-              </ThemeProvider>
-            </div>
+            <ThemeProvider theme={theme}>
+              <TextField
+                label="Email"
+                variant="outlined"
+                value={email}
+                onInput={(e) => setEmail(e.target.value)}
+                style={{ width: "100%" }}
+              />
+              <FormHelperText
+                id="email_error"
+                style={{ paddingBottom: "10px", color: "red" }}
+              >
+                {" "}
+              </FormHelperText>
+            </ThemeProvider>
+            <ThemeProvider theme={theme}>
+              <TextField
+                label="Password"
+                variant="outlined"
+                style={{ width: "100%" }}
+                type="password"
+                value={password}
+                onInput={(e) => setPassword(e.target.value)}
+              />
+              <FormHelperText
+                id="password_error"
+                style={{ paddingBottom: "10px", color: "red" }}
+              >
+                {" "}
+              </FormHelperText>
+            </ThemeProvider>
             <ButtonBase
               className={classes.submit}
               key="submit"
@@ -139,4 +169,4 @@ const Login = ({ history }) => {
   }
 };
 
-export default Login;
+export default withRouter(Login);
