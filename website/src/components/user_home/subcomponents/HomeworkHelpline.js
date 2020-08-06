@@ -1,40 +1,95 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
-import ButtonBase from "@material-ui/core/Button";
-// card
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import PropTypes from "prop-types";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
 import "./index.css";
 
-const styles = makeStyles((theme) => ({
-  card: {
-    boxShadow: "0px 2px 2px 0px rgba(0,0,0,0.14)",
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3} style={{ height: "500px" }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `full-width-tab-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.background.paper,
     left: "50%",
     margin: "30px",
-    height: "100%",
-  },
-  card_content: {
-    display: "flex",
-    justifyContent: "space-between",
   },
 }));
 
-const buttons = [{ title: "ASK A QUESTION" }, { title: "PAST QUESTIONS" }];
-export default function POTNLogo() {
-  const classes = styles();
+export default function FullWidthTabs() {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
 
   return (
-    <div className="container" style={{ background: "cadetblue" }}>
-      <Card className={classes.card}>
-        <CardContent className={classes.card_content}>
-          <div>{""}</div>
-          <ButtonBase>ASK A QUESTION</ButtonBase>
-          <ButtonBase>PAST QUESTIONS</ButtonBase>
-          <div>{""}</div>
-        </CardContent>
-      </Card>
+    <div
+      className="helpline_container"
+      style={{ backgroundColor: "cadetblue" }}
+    >
+      <div className={classes.root}>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            variant="fullWidth"
+            aria-label="full width tabs example"
+          >
+            <Tab label="ASK A QUESTION" />
+            <Tab label="PAST QUESTIONS" />
+          </Tabs>
+        </AppBar>
+
+        <TabPanel value={value} index={0} dir={theme.direction}>
+          ASK A QUESTION
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          PAST QUESTIONS
+        </TabPanel>
+      </div>
     </div>
   );
 }

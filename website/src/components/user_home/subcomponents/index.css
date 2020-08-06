@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap");
-.container {
+.helpline_container {
   margin-top: 72px;
   min-height: 500px;
   min-width: 1200px;
   padding: 0;
   text-align: center;
+  flex-grow: 1;
 }
