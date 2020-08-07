@@ -89,7 +89,7 @@ const SignUp = ({ history }) => {
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(() => {
-          history.push("/user_home");
+          history.push("/homework_helpline");
         })
         .catch((error) => {
           console.log(error);
@@ -102,7 +102,7 @@ const SignUp = ({ history }) => {
   const classes = styles();
 
   if (currentUser) {
-    return <Redirect to="/user_home" />;
+    return <Redirect to="/homework_helpline" />;
   } else {
     return (
       <div style={{ backgroundColor: "cadetblue", height: "100vh" }}>

@@ -7,6 +7,8 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
+import Form from "./Form";
+import PastQuestions from "./PastQuestions";
 import "./index.css";
 
 function TabPanel(props) {
@@ -22,7 +24,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3} style={{ height: "500px" }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -84,10 +86,10 @@ export default function FullWidthTabs() {
         </AppBar>
 
         <TabPanel value={value} index={0} dir={theme.direction}>
-          ASK A QUESTION
+          <Form />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          PAST QUESTIONS
+          <PastQuestions />
         </TabPanel>
       </div>
     </div>

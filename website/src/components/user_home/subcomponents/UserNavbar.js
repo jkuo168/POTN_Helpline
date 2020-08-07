@@ -92,17 +92,28 @@ const UserNavbar = () => {
   const classes = styles();
 
   // toggle mobile menu dropdown
-  const [dropdown, setDropdown] = useState(null);
-  const isDropdownOpen = Boolean(dropdown);
+  const [menuDropdown, setMenuDropdown] = useState(null);
+  const [signOutDropdown, setSignOutDropdown] = useState(null);
+  const isMenuDropdownOpen = Boolean(menuDropdown);
+  const isSignOutDropdownOpen = Boolean(signOutDropdown);
 
   // mobile menu popup handler
   const handleMenu = (event) => {
-    setDropdown(event.currentTarget);
+    setMenuDropdown(event.currentTarget);
+  };
+
+  const handleSignOut = (event) => {
+    setSignOutDropdown(event.currentTarget);
   };
 
   // mobile menu popup handler
-  const handleClose = () => {
-    setDropdown(null);
+  const handleMenuClose = () => {
+    setMenuDropdown(null);
+  };
+
+  // mobile menu popup handler
+  const handleSignOutClose = () => {
+    setSignOutDropdown(null);
   };
 
   return (
@@ -114,9 +125,9 @@ const UserNavbar = () => {
           </IconButton>
           <Menu
             id="menu-appbar"
-            onClose={handleClose}
-            open={isDropdownOpen}
-            anchorEl={dropdown}
+            onClose={handleMenuClose}
+            open={isMenuDropdownOpen}
+            anchorEl={menuDropdown}
             anchorOrigin={{
               vertical: "top",
               horizontal: "right",
@@ -139,12 +150,6 @@ const UserNavbar = () => {
                 </MenuItem>
               );
             })}
-            <MenuItem
-              className={classes.navBarDropdownButton}
-              onClick={() => app.auth().signOut()}
-            >
-              SIGN OUT
-            </MenuItem>
           </Menu>
           <div style={{ flex: 1 }}>{""}</div>
           <div
@@ -157,9 +162,31 @@ const UserNavbar = () => {
             Homework Helpline{" "}
           </div>
           <div style={{ flex: 1 }}>{""}</div>
-          <IconButton color="inherit">
+          <IconButton color="inherit" onClick={handleSignOut}>
             <AccountBoxIcon />
-          </IconButton>
+          </IconButton>{" "}
+          <Menu
+            id="sign_out"
+            onClose={handleSignOutClose}
+            open={isSignOutDropdownOpen}
+            anchorEl={signOutDropdown}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+          >
+            <MenuItem
+              className={classes.navBarDropdownButton}
+              onClick={() => app.auth().signOut()}
+            >
+              SIGN OUT
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
     </header>
