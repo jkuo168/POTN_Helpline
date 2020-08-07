@@ -1,32 +1,24 @@
 {
   "files": {
-    "main.css": "/POTN_Helpline/static/css/main.ef3603c5.chunk.css",
-    "main.js": "/POTN_Helpline/static/js/main.39e7a378.chunk.js",
-    "main.js.map": "/POTN_Helpline/static/js/main.39e7a378.chunk.js.map",
+    "main.css": "/POTN_Helpline/static/css/main.7e1c128c.chunk.css",
+    "main.js": "/POTN_Helpline/static/js/main.e0f3f289.chunk.js",
+    "main.js.map": "/POTN_Helpline/static/js/main.e0f3f289.chunk.js.map",
     "runtime-main.js": "/POTN_Helpline/static/js/runtime-main.e9b82c2e.js",
     "runtime-main.js.map": "/POTN_Helpline/static/js/runtime-main.e9b82c2e.js.map",
-    "static/css/2.b1b46646.chunk.css": "/POTN_Helpline/static/css/2.b1b46646.chunk.css",
-    "static/js/2.fe69d02e.chunk.js": "/POTN_Helpline/static/js/2.fe69d02e.chunk.js",
-    "static/js/2.fe69d02e.chunk.js.map": "/POTN_Helpline/static/js/2.fe69d02e.chunk.js.map",
+    "static/js/2.06e80127.chunk.js": "/POTN_Helpline/static/js/2.06e80127.chunk.js",
+    "static/js/2.06e80127.chunk.js.map": "/POTN_Helpline/static/js/2.06e80127.chunk.js.map",
     "index.html": "/POTN_Helpline/index.html",
-    "precache-manifest.95987fc59aab3f125e314a7a8dcd69fb.js": "/POTN_Helpline/precache-manifest.95987fc59aab3f125e314a7a8dcd69fb.js",
+    "precache-manifest.453f2e40df12665f2e6a4b79fe1fcedf.js": "/POTN_Helpline/precache-manifest.453f2e40df12665f2e6a4b79fe1fcedf.js",
     "service-worker.js": "/POTN_Helpline/service-worker.js",
-    "static/css/2.b1b46646.chunk.css.map": "/POTN_Helpline/static/css/2.b1b46646.chunk.css.map",
-    "static/css/main.ef3603c5.chunk.css.map": "/POTN_Helpline/static/css/main.ef3603c5.chunk.css.map",
-    "static/js/2.fe69d02e.chunk.js.LICENSE.txt": "/POTN_Helpline/static/js/2.fe69d02e.chunk.js.LICENSE.txt",
-    "static/media/HomeworkHelpline": "/POTN_Helpline/static/media/HomeworkHelpline.d41d8cd9.bin",
-    "static/media/pace_1.jpg": "/POTN_Helpline/static/media/pace_1.841ec5c1.jpg",
-    "static/media/pace_2.jpg": "/POTN_Helpline/static/media/pace_2.963dd8b5.jpg",
-    "static/media/pace_3.jpg": "/POTN_Helpline/static/media/pace_3.c586a7df.jpg",
+    "static/css/main.7e1c128c.chunk.css.map": "/POTN_Helpline/static/css/main.7e1c128c.chunk.css.map",
+    "static/js/2.06e80127.chunk.js.LICENSE.txt": "/POTN_Helpline/static/js/2.06e80127.chunk.js.LICENSE.txt",
     "static/media/pace_logo.png": "/POTN_Helpline/static/media/pace_logo.5f8db1be.png",
-    "static/media/pton_logo.svg": "/POTN_Helpline/static/media/pton_logo.b84d1171.svg",
-    "static/media/slick-theme.css": "/POTN_Helpline/static/media/slick.f97e3bbf.svg"
+    "static/media/pton_logo.svg": "/POTN_Helpline/static/media/pton_logo.b84d1171.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.e9b82c2e.js",
-    "static/css/2.b1b46646.chunk.css",
-    "static/js/2.fe69d02e.chunk.js",
-    "static/css/main.ef3603c5.chunk.css",
-    "static/js/main.39e7a378.chunk.js"
+    "static/js/2.06e80127.chunk.js",
+    "static/css/main.7e1c128c.chunk.css",
+    "static/js/main.e0f3f289.chunk.js"
   ]
 }
